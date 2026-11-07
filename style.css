@@ -1,0 +1,86 @@
+/* Plein Écran iPad — actif seulement quand body.ipe-on (tablette détectée). */
+
+body.ipe-on {
+    --sheldWidth: 100vw;
+    --sheldWidth: 100dvw;
+    width: 100%;
+    max-width: none;
+    overflow-x: hidden;
+}
+
+html:has(body.ipe-on) {
+    width: 100%;
+    max-width: none;
+    overflow-x: hidden;
+}
+
+body.ipe-on #top-bar,
+body.ipe-on #top-settings-holder {
+    width: 100vw !important;
+    width: 100dvw !important;
+    max-width: none !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.ipe-on:not(.waifuMode) #sheld {
+    width: 100vw !important;
+    width: 100dvw !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    height: calc(var(--ipe-vvh, 100dvh) - var(--topBarBlockSize, 36px) - 1px) !important;
+    max-height: calc(var(--ipe-vvh, 100dvh) - var(--topBarBlockSize, 36px) - 1px) !important;
+    padding-left: max(env(safe-area-inset-left), 0px);
+    padding-right: max(env(safe-area-inset-right), 0px);
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+body.ipe-on #bg1,
+body.ipe-on #bg_custom {
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background-position: center;
+}
+
+/* En paysage (> 1000 px), les tiroirs restent à la largeur du chat : les passer en overlay plein écran. */
+body.ipe-on .drawer-content,
+body.ipe-on #character_popup,
+body.ipe-on #select_chat_popup,
+body.ipe-on #left-nav-panel.openDrawer,
+body.ipe-on #right-nav-panel.openDrawer {
+    width: 100vw !important;
+    width: 100dvw !important;
+    max-width: 100dvw !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.ipe-on #form_sheld,
+body.ipe-on #send_form,
+body.ipe-on #chat {
+    width: 100%;
+    max-width: none;
+}
+
+.ipe-hint {
+    opacity: 0.8;
+    font-size: 0.92em;
+    margin-bottom: 10px;
+}
+
+.ipe-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 8px 0;
+}

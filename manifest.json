@@ -1,0 +1,14 @@
+{
+    "display_name": "Plein Écran iPad",
+    "loading_order": 20,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "hydravnss",
+    "version": "1.0.0",
+    "minimum_client_version": "1.12.0",
+    "auto_update": true,
+    "homePage": "https://github.com/hydravnss/plein-ecran-ipad",
+    "description": "FR: SillyTavern occupe tout l’écran sur iPad (portrait et paysage). EN: Make SillyTavern fill the iPad screen in portrait and landscape."
+}
