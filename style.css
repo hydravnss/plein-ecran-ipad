@@ -84,3 +84,58 @@ body.ipe-on #chat {
     gap: 12px;
     margin: 8px 0;
 }
+
+
+/* 1.0.1 : iPhone / iPad — la barre d’icônes ne passe plus derrière l’encoche.
+   Sans ça, viewport-fit=cover envoie #top-bar à top:0 sous la status bar :
+   icônes floues, intouchables, et la liste colle au bord de l’écran. */
+@supports (-webkit-touch-callout: none) {
+    #top-bar,
+    #top-settings-holder {
+        padding-top: env(safe-area-inset-top, 0px);
+        height: calc(var(--topBarBlockSize) + env(safe-area-inset-top, 0px)) !important;
+        box-sizing: border-box !important;
+        background-color: #111114 !important;
+        background-image: linear-gradient(var(--SmartThemeBlurTintColor, #111114), var(--SmartThemeBlurTintColor, #111114));
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        pointer-events: auto !important;
+        z-index: 4005;
+    }
+
+    #top-settings-holder {
+        display: flex;
+        align-items: center;
+        pointer-events: auto !important;
+    }
+
+    #top-settings-holder .drawer,
+    #top-settings-holder .drawer-toggle,
+    #top-settings-holder .drawer-icon {
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 1;
+    }
+
+    #sheld,
+    #character_popup,
+    #world_popup,
+    .drawer-content,
+    #right-nav-panel,
+    #left-nav-panel,
+    #floatingPrompt,
+    #cfgConfig,
+    #logprobsViewer {
+        top: calc(var(--topBarBlockSize) + env(safe-area-inset-top, 0px)) !important;
+    }
+
+    #sheld {
+        height: calc(100dvh - var(--topBarBlockSize) - env(safe-area-inset-top, 0px) - 1px) !important;
+        max-height: calc(100dvh - var(--topBarBlockSize) - env(safe-area-inset-top, 0px) - 1px) !important;
+    }
+}
+
+body.ipe-on:not(.waifuMode) #sheld {
+    height: calc(var(--ipe-vvh, 100dvh) - var(--topBarBlockSize, 36px) - env(safe-area-inset-top, 0px) - 1px) !important;
+    max-height: calc(var(--ipe-vvh, 100dvh) - var(--topBarBlockSize, 36px) - env(safe-area-inset-top, 0px) - 1px) !important;
+}

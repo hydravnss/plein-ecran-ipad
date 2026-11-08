@@ -13,7 +13,7 @@ Cette extension détecte une tablette tactile et force :
 - les marges de sécurité iOS (`safe-area-inset`)
 - les panneaux / tiroirs en overlay pleine largeur
 
-Aucun changement sur iPhone.
+Sur iPhone, la barre d’icônes du haut reste **sous l’encoche** (plus floue ni inaccessible).
 
 ## Installation
 
@@ -32,6 +32,10 @@ Puis recharge la page (sur iPad : ferme l’onglet et rouvre-le).
 Extensions → **Plein Écran iPad** → case **Activer** (activé par défaut).
 
 Pour masquer aussi la barre de Safari, ajoute le site à l’écran d’accueil (partage → Sur l’écran d’accueil).
+
+## 1.0.1
+
+La barre du haut ne passe plus derrière l’heure / l’encoche sur iPhone : les icônes redeviennent visibles et cliquables.
 
 ## Licence
 

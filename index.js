@@ -136,6 +136,11 @@ function unbindViewport() {
 function apply() {
     const on = !!(settings && settings.enabled) && isTablet();
     document.body.classList.toggle(BODY_CLASS, on);
+    if (settings && settings.enabled) {
+        // Needed on iPhone too: without viewport-fit=cover, or with it and
+        // no safe-area padding, the top icons slide under the status bar.
+        ensureViewportFit();
+    }
     if (on) {
         syncViewportHeight();
         ensureFullscreenMetas();
